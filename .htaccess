@@ -1,0 +1,32 @@
+RewriteEngine On
+RewriteRule ^_index$ ./index.php [L]
+RewriteRule ^_list$ ./list.php [L]
+RewriteRule ^_list_(.*)$ ./list.php?page=$1 [L]
+RewriteRule ^_register$ ./register.php [L]
+RewriteRule ^_register_submit$ ./register_submit.php [L]
+RewriteRule ^_refresh/(.*)$ ./refresh.php?id=$1 [L]
+RewriteRule ^_login$ ./login.php [L]
+RewriteRule ^_login_submit$ ./login_submit.php [L]
+RewriteRule ^_logout$ ./login.php?logout [L]
+RewriteRule ^_myinfo$ ./myinfo.php [L]
+RewriteRule ^_myinfo_submit$ ./myinfo_submit.php [L]
+RewriteRule ^_myinfo_submit_delete$ ./myinfo_submit.php?delete [L]
+RewriteRule ^_lang/(.*)$ ./index.php?lang=$1 [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)$ ./info.php?link=$1&type=single [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)_single$ ./info.php?link=$1&type=single [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)_double$ ./info.php?link=$1&type=double [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)_single_([0-9]+)$ ./info.php?link=$1&type=single&page=$2 [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)_double_([0-9]+)$ ./info.php?link=$1&type=double&page=$2 [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)_single_([a-z]+)$ ./info.php?link=$1&type=single&order=$2 [L]
+RewriteRule ^([a-z0-9A-Z가-힣\-*\ ]+)_double_([a-z]+)$ ./info.php?link=$1&type=double&order=$2 [L]
+RewriteRule ^_api/([a-z0-9A-Z가-힣\-*\ ]+)$ ./info.php?link=$1&api [L]
+RewriteRule ^_getradar/([sd])/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)$ ./getradar.php?type=$1&d0=$2&d1=$3&d2=$4&d3=$5&d4=$6 [L]
+RewriteRule ^_check_rival_id$ ./check_rival_id.php [L]
+RewriteRule ^_check_rival_id_submit$ ./check_rival_id_submit.php [L]
+RewriteRule ^_404$ ./404.php [L]
+ErrorDocument 404 /404.php
+RewriteRule ^_status$ ./status.php [L]
+<Files "cookie">
+Order Allow,Deny
+Deny from all
+</Files>
